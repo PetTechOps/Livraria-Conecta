@@ -12,7 +12,7 @@ export const HeaderStyles = styled.header`
 
 export const ListStyles = styled.ul`
   list-style-type: none;
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
