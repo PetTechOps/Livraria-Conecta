@@ -2,14 +2,29 @@ import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import Livro from "../assets/livro.jpg";
 import { CardStyles } from "../components/Card/styles";
+import { useEffect, useState } from "react";
+import { FooterComponent } from "../components/Footer";
 
 export function Catalogo() {
+  const [livros, setLivros] = useState([]);
+
+  useEffect(() => {
+    // Recupera o JSON do localStorage
+    const livroData = localStorage.getItem("livroData");
+
+    // Verifica se existem dados e converte de string para objeto
+    if (livroData) {
+      const livrosArray = JSON.parse(livroData);
+      setLivros(livrosArray);
+    }
+  }, []);
+
   return (
     <>
       <Header />
       <section
         style={{
-          width: "100vw",
+          width: "100%",
           height: "100vh",
           padding: "10rem",
           display: "flex",
@@ -38,20 +53,19 @@ export function Catalogo() {
               justifyContent: "flex-start",
             }}
           >
-            {Array(6)
-              .fill()
-              .map((_, index) => (
-                <CardStyles key={index}>
-                  <img src={Livro} alt="Livro" />
-                  <span>Nome</span>
-                  <span>Autor</span>
-                  <span>Editora</span>
-                  <span>Ano de publicação</span>
-                </CardStyles>
-              ))}
+            {livros.map((livro, index) => (
+              <CardStyles key={index}>
+                <img src={Livro} alt="Livro" />
+                <span>{livro["Nome do Livro"]}</span>
+                <span>{livro["Autor"]}</span>
+                <span>{livro["Editora"]}</span>
+                <span>{livro["Ano de publicação"]}</span>
+              </CardStyles>
+            ))}
           </div>
         </div>
       </section>
+      <FooterComponent />
     </>
   );
 }
