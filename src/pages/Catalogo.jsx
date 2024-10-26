@@ -3,6 +3,8 @@ import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import Livro from "../assets/livro.jpg";
 import { CardStyles } from "../components/Card/styles";
+import { useEffect, useState } from "react";
+import { FooterComponent } from "../components/Footer";
 
 export function Catalogo() {
   const [livros, setLivros] = useState([]);
@@ -17,7 +19,7 @@ export function Catalogo() {
       <Header />
       <section
         style={{
-          width: "100vw",
+          width: "100%",
           height: "100vh",
           padding: "10rem",
           display: "flex",
@@ -62,6 +64,7 @@ export function Catalogo() {
           </div>
         </div>
       </section>
+      <FooterComponent />
     </>
   );
 }
