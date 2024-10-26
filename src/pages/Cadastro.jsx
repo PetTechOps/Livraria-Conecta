@@ -8,7 +8,7 @@ export function Cadastro() {
     <>
       <Header />
       <h1 style={{ color: "black", marginTop: "10rem", textAlign: "center" }}>
-        Cadastro de Usuário
+        Cadastro de Livros
       </h1>
       <FormLivro info={infoLivro} />
       <FooterComponent />
