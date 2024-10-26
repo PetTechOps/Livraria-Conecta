@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import { Catalogo } from "./pages/Catalogo";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cadastro } from "./pages/Cadastro";
+import { Catalogo } from "./pages/Catalogo";
 
 export function Rotas() {
   return (
