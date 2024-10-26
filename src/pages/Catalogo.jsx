@@ -1,9 +1,17 @@
+import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import Livro from "../assets/livro.jpg";
 import { CardStyles } from "../components/Card/styles";
 
 export function Catalogo() {
+  const [livros, setLivros] = useState([]);
+
+  useEffect(() => {
+    const existingData = JSON.parse(localStorage.getItem("livroData")) || [];
+    setLivros(existingData);
+  }, []);
+
   return (
     <>
       <Header />
@@ -38,17 +46,19 @@ export function Catalogo() {
               justifyContent: "flex-start",
             }}
           >
-            {Array(6)
-              .fill()
-              .map((_, index) => (
+            {livros.length > 0 ? (
+              livros.map((livro, index) => (
                 <CardStyles key={index}>
                   <img src={Livro} alt="Livro" />
-                  <span>Nome</span>
-                  <span>Autor</span>
-                  <span>Editora</span>
-                  <span>Ano de publicação</span>
+                  <span>{livro["Nome"]}</span>
+                  <span>{livro["Autor"]}</span>
+                  <span>{livro["Editora"]}</span>
+                  <span>{livro["Ano de publicação"]}</span>
                 </CardStyles>
-              ))}
+              ))
+            ) : (
+              <p>Nenhum livro cadastrado.</p>
+            )}
           </div>
         </div>
       </section>

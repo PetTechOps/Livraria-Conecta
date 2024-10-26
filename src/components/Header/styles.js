@@ -15,8 +15,10 @@ export const ListStyles = styled.ul`
   width: 70%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: end;
+  gap: 5rem;
   align-items: center;
+  margin-right: 4rem;
   font-size: 1rem;
   margin: 0;
 `;

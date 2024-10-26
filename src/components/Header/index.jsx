@@ -3,10 +3,8 @@ import { HeaderStyles, ListStyles, Links } from "./styles";
 
 export function Header() {
   const listaHeader = [
-    "Cadastro de Cliente",
-    "Cadastro de Livro",
-    "Pequisar Cliente",
-    "Pesquisar Livro",
+    { texto: "Cadastre seu Livro", link: "/" },
+    { texto: "Pesquisar livros", link: "/catalogo" },
   ];
   return (
     <HeaderStyles>
@@ -16,7 +14,7 @@ export function Header() {
         {listaHeader.map((item) => {
           return (
             <li>
-              <Links href="">{item}</Links>
+              <Links href={item.link}>{item.texto}</Links>
             </li>
           );
         })}
